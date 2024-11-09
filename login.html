@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Error message if any -->
+                        <div id="error-message" class="alert alert-danger d-none">
+                            Incorrect email or password. Please try again.
+                        </div>
+                        <form id="login-form" action="login.php" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                        <hr>
+                        <p class="text-center">Don't have an account? <a href="register.php">Register here</a></p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p>&copy; 2024 Calendar System</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Example: If the login fails, show the error message
+        const errorMessage = "<?php echo isset($error) ? $error : ''; ?>";
+        if (errorMessage) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.classList.remove('d-none');
+            errorDiv.innerHTML = errorMessage;
+        }
+    </script>
+</body>
+</html>
